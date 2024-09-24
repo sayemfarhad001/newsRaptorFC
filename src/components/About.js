@@ -12,13 +12,18 @@ const About = (props) => {
 
   useEffect(()=>{
     document.title = `${capitalize(props.category)} - NewsRaptor`;
+    
+    props.setProgress(50);
+    setTimeout(()=>{
+      props.setProgress(100);
+    }, 200)
   }, [])
 
   return (
     <div className="container" style={{marginTop: "90px" }}
     >
       <h1 className="container my-3 text-center" style={{color: props.mode === 'dark'?'white':'#042743'}}>
-      NewsRaptor - {capitalize(props.category)} Us
+        NewsRaptor - {capitalize(props.category)} Us
         </h1>
       <div className="accordion" id="accordionExample" style={myStyle}>
         <div className="accordion-item" style={myStyle}>
