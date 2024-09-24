@@ -10,7 +10,6 @@ const News = (props) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  // document.title = `${capitalize(props.category)} - NewsRaptor`;
 
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,6 +33,7 @@ const News = (props) => {
   }
 
   useEffect(()=>{
+    document.title = `${capitalize(props.category)} - NewsRaptor`;
     updateNews();
     //eslint-disable-next-line
   }, [])
@@ -71,7 +71,7 @@ const News = (props) => {
                 <div className="container">    
                     <div className="row">
                         {articles.map((element) => {
-                            return (<div key={element.id + element.publishedAt} className="col-md-4">
+                            return (<div key={element.id + element.url + element.title + element.publishedAt} className="col-md-4">
                                 <NewsItem
                                     title={element.title ? element.title.slice(0, 45) : ""}
                                     description={element.description ? element.description.slice(0, 88) : ""}

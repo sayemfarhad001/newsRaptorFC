@@ -9,7 +9,8 @@ import About from './components/About';
 import apiKey from './newsapi-apikey';
 
 const App = () => {
-
+  
+  const pageSize = 5;
   const [mode, setMode] = useState('light');
   const [progress, setProgress] = useState(0);
 
@@ -23,7 +24,6 @@ const App = () => {
     }
   }
 
-  let pageSize = 5;
 
   return (
     <>
@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/science" element={<News setProgress={setProgress} key="science" pageSize={pageSize} apiKey={apiKey} category="science" mode={mode}/>}/>
           <Route path="/sports" element={<News setProgress={setProgress} key="sports" pageSize={pageSize} apiKey={apiKey} category="sports" mode={mode}/>}/>
           <Route path="/technology" element={<News setProgress={setProgress} key="technology" pageSize={pageSize} apiKey={apiKey} category="technology" mode={mode}/>}/>
-          <Route path="/about" element={<About setProgress={setProgress} mode={mode}/>}/> 
+          <Route path="/about" element={<About setProgress={setProgress} key="about" category="about" mode={mode}/>}/> 
         </Routes> 
       </Router>
     </>      
