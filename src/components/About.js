@@ -1,31 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 
-
-export class About extends Component {
-
-  myStyle = {
-      color: this.props.mode === 'dark'?'white':'#042743',
-      backgroundColor: this.props.mode === 'dark'?'rgb(36 74 104)':'white'
+const About = (props) => {
+  let myStyle = {
+      color: props.mode === 'dark'?'white':'#042743',
+      backgroundColor: props.mode === 'dark'?'rgb(36 74 104)':'white'
     }
-
-render () {
 
     return (
       <div className="container">
-        <h1 className="container my-3" style={{color: this.props.mode === 'dark'?'white':'#042743'}}>About Us</h1>
-        <div className="accordion" id="accordionExample" style={this.myStyle}>
-          <div className="accordion-item" style={this.myStyle}>
+        <h1 className="container my-3" style={{color: props.mode === 'dark'?'white':'#042743'}}>About Us</h1>
+        <div className="accordion" id="accordionExample" style={myStyle}>
+          <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button"
-                style={this.myStyle}
+                style={myStyle}
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                <strong>Analyze your text</strong>
+                <strong>Get the latest news</strong>
               </button>
             </h2>
             <div
@@ -33,16 +29,16 @@ render () {
               className="accordion-collapse collapse show"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={this.myStyle}>
-              Our tool offers in-depth text analysis, breaking down your writing to identify key patterns, structures, and potential improvements. With advanced algorithms, we provide actionable insights to enhance clarity, coherence, and style. Elevate your text with precise feedback tailored to your specific needs.
+              <div className="accordion-body" style={myStyle}>
+                Our tool offers a dynamic news feed with features such as infinite scroll, loading bar and dark mode. The exclusive news are categorized in the navbar providing links to the news detail.      
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={this.myStyle}>
+          <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
-                style={this.myStyle}
+                style={myStyle}
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
@@ -57,16 +53,16 @@ render () {
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={this.myStyle}>
+              <div className="accordion-body" style={myStyle}>
               Enjoy full access to our text analysis tool at no cost. We believe in empowering everyone with the resources to refine their writing without any financial barriers. Start improving your text today without any hidden fees or subscriptions.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={this.myStyle}>
+          <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
-                style={this.myStyle}
+                style={myStyle}
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
@@ -81,22 +77,14 @@ render () {
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={this.myStyle}>
+              <div className="accordion-body" style={myStyle}>
               Our tool is designed to work seamlessly across all major web browsers. Whether you’re using Chrome, Firefox, Safari, or Edge, you’ll experience smooth and efficient text analysis. No need for additional software—just open your browser and get started.
               </div>
             </div>
           </div>
         </div>
-
-        {/* <div className="container my-3">
-            <button type="button" className="btn btn-primary" onClick={toggleStyle}>
-                {btnText}
-            </button>
-        </div> */}
       </div>
-    ) 
-  };
-  
+    )   
 
 }
 
