@@ -35,6 +35,7 @@ const News = (props) => {
 
   useEffect(()=>{
     updateNews();
+    //eslint-disable-next-line
   }, [])
 
   // async componentDidMount() {
@@ -42,9 +43,10 @@ const News = (props) => {
   // }
 
   const fetchMoreData = async () => {
-    setPage(page + 1)
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
+    setPage(page + 1)
+
     let data = await fetch(url);
     let parsedData = await data.json();
 
@@ -55,7 +57,7 @@ const News = (props) => {
     return (
       <>
         <h1 className={`text-center text-${ props.mode === "light" ? "dark" : "light"}`}
-          style={{ margin: "35px 0px" }}
+          style={{ margin: "35px 0px", marginTop: "90px" }}
         >
           {" "}
           NewsRaptor - Top {capitalize(props.category)} Headlines
@@ -69,7 +71,7 @@ const News = (props) => {
                 <div className="container">    
                     <div className="row">
                         {articles.map((element) => {
-                            return (<div key={element.id + element.url + element.title} className="col-md-4">
+                            return (<div key={element.id + element.publishedAt} className="col-md-4">
                                 <NewsItem
                                     title={element.title ? element.title.slice(0, 45) : ""}
                                     description={element.description ? element.description.slice(0, 88) : ""}
@@ -90,11 +92,11 @@ const News = (props) => {
   
 }
 
-News.defaultProps = {
-  country: "stranger",
-  pageSize: 18,
-  category: "general",
-};
+// News.defaultProps = {
+//   country: "stranger",
+//   pageSize: 18,
+//   category: "general",
+// };
 
 News.propTypes = {
   country: PropTypes.string,
